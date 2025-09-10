@@ -1,4 +1,9 @@
 #!/usr/bin/python3
 def no_c(my_string):
-    copy = my_string.replace('c', '').replace('C', '')
-    return (copy)
+    cp = ''
+    for i in my_string:
+        if i == 'C' or i == 'c':
+            continue
+        else:
+            cp += i
+    return cp
