@@ -4,7 +4,7 @@
 
 
 class Rectangle:
-    
+
     """Represent a rectangle"""
 
     number_of_instances = 0
@@ -72,4 +72,3 @@ class Rectangle:
         """Print a message when an instance of Rectangle is deleted"""
         print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
-    
