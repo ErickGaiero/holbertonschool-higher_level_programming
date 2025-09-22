@@ -4,10 +4,16 @@
 
 
 class Rectangle:
+    
+    def number_of_instances():
+        """Return the number of instances of Rectangle"""
+        return Rectangle.number_of_instances
+    
     """Rectangle class"""
     def __init__(self, width=0, height=0):
         self.width = width
         self.height = height
+        Rectangle.number_of_instances += 1
 
     @property
     def height(self):
@@ -65,8 +71,5 @@ class Rectangle:
     def __del__(self):
         """Print a message when an instance of Rectangle is deleted"""
         print("Bye rectangle...")
-
-    def number_of_instances():
-        """Return the number of instances of Rectangle"""
-        return Rectangle.number_of_instances
+        Rectangle.number_of_instances -= 1
     
