@@ -8,9 +8,9 @@ class Rectangle:
     def number_of_instances():
         """Return the number of instances of Rectangle"""
         return Rectangle.number_of_instances
-    
-    """Rectangle class"""
+
     def __init__(self, width=0, height=0):
+        """Rectangle class"""
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
