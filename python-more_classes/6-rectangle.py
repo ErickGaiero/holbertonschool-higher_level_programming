@@ -5,6 +5,9 @@
 
 class Rectangle:
     
+    """Represent a rectangle"""
+    
+    
     def number_of_instances():
         """Return the number of instances of Rectangle"""
         return Rectangle.number_of_instances
