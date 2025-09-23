@@ -1,0 +1,29 @@
+# Caso 1: lista vacía
+>>> my_list = __import__('mylist').MyList()
+>>> my_list.print_sorted()
+[]
+
+# Caso 2: lista ordenada
+>>> my_list = __import__('mylist').MyList([1, 2, 3, 4, 5])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Caso 3: lista inversa
+>>> my_list = __import__('mylist').MyList([5, 4, 3, 2, 1])
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
+
+# Caso 4: lista con repetidos
+>>> my_list = __import__('mylist').MyList([4, 2, 4, 1, 2])
+>>> my_list.print_sorted()
+[1, 2, 2, 4, 4]
+
+# Caso 5: negativos y positivos
+>>> my_list = __import__('mylist').MyList([-3, -1, -7, 4, 2])
+>>> my_list.print_sorted()
+[-7, -3, -1, 2, 4]
+
+# Caso 6: lista de strings
+>>> my_list = __import__('mylist').MyList(["z", "a", "c", "b"])
+>>> my_list.print_sorted()
+['a', 'b', 'c', 'z']
