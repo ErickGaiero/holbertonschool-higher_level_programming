@@ -26,3 +26,8 @@
     >>> my_list.append(hola)
     Traceback (most recent call last):
     NameError: name 'hola' is not defined
+
+    >>> my_list = MyList()
+    >>> my_list.append()
+    Traceback (most recent call last):
+    TypeError: list.append() takes exactly one argument (0 given)
