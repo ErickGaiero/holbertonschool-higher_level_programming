@@ -28,6 +28,10 @@
     NameError: name 'hola' is not defined
 
     >>> my_list = MyList()
-    >>> my_list.append()
-    Traceback (most recent call last):
-    TypeError: list.append() takes exactly one argument (0 given)
+    >>> print(my_list)
+    []
+    >>> my_list.print_sorted()
+    []
+    >>> print(my_list)
+    []
+
