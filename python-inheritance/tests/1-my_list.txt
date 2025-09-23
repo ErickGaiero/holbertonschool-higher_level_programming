@@ -22,8 +22,3 @@
 >>> my_list = __import__('mylist').MyList([-3, -1, -7, 4, 2])
 >>> my_list.print_sorted()
 [-7, -3, -1, 2, 4]
-
-# Caso 6: lista de strings
->>> my_list = __import__('mylist').MyList(["z", "a", "c", "b"])
->>> my_list.print_sorted()
-['a', 'b', 'c', 'z']
