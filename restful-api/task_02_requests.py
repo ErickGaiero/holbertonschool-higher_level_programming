@@ -6,14 +6,14 @@ import csv
 
 
 def fetch_and_print_posts():
-    """Fetch posts from JSONPlaceholder and print their titles"""
+    """Fetch posts from JSONPlaceholder and print their tittles"""
     url = "https://jsonplaceholder.typicode.com/posts"
     response = requests.get(url)
     print("Status Code:", response.status_code)
     if response.status_code == 200:
         posts = response.json()
         for post in posts:
-            print(post["title"])
+            print(post["tittle"])
 
 
 def fetch_and_save_posts():
@@ -23,10 +23,10 @@ def fetch_and_save_posts():
     if response.status_code == 200:
         posts = response.json()
         data = [
-            {"id": post["id"], "title": post["title"], "body": post["body"]}
+            {"id": post["id"], "tittle": post["tittle"], "body": post["body"]}
             for post in posts
         ]
         with open("posts.csv", "w", newline="", encoding="utf-8") as csvfile:
-            writer = csv.DictWriter(csvfile, fieldnames=["id", "title", "body"])
+            writer = csv.DictWriter(csvfile, fieldnames=["id", "tittle", "body"])
             writer.writeheader()
             writer.writerows(data)
