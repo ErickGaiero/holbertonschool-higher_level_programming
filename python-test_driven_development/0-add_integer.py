@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+
+"""Exercise 0"""
+
+
 def add_integer(a, b=98):
     
     """Adds two numbers after casting floats to integers."""
