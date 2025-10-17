@@ -17,13 +17,29 @@ users = {
 @auth.verify_password
 def verify_password(username, password):
     if username in users and check_password_hash(users[username]["password"], password):
-        return True
-    return False
+        return username
+    return None
+
+@auth.error_handler
+def basic_auth_error():
+    return jsonify({"error": "Unauthorized Access (Basic Auth)"}), 401
+
+@jwt.unauthorized_loader
+def unauthorized_callback(callback):
+    return jsonify({"error": "Missing or Invalid Token"}), 401
+
+@jwt.invalid_token_loader
+def invalid_token_callback(callback):
+    return jsonify({"error": "Invalid Token Format"}), 401
+
+@jwt.expired_token_loader
+def expired_token_callback(jwt_header, jwt_payload):
+    return jsonify({"error": "Token has expired"}), 401
 
 @app.route("/basic-protected")
 @auth.login_required
 def basic_protected():
-    return jsonify({"message": "Access Granted"})
+    return jsonify({"message": f"Access Granted for user: {auth.current_user()}"}), 200
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -39,17 +55,17 @@ def login():
         return jsonify({"error": "Invalid credentials"}), 403
 
     token = create_access_token(identity=username)
-    return jsonify({"access": token})
+    return jsonify({"access": token}), 200
 
 @app.route("/jwt-protected")
 @jwt_required()
 def jwt_protected():
-    return "Access granted with JWT"
+    return jsonify({"message": "Access granted with JWT"}), 200
 
 @app.route("/admin-only")
 @jwt_required()
 def admin_only():
-    return "Admin Access: Granted"
+    return jsonify({"message": "Admin Access: Granted (Requires valid JWT)"}), 200
 
 if __name__ == "__main__":
-    app.run()
+    app.run(debug=True)
