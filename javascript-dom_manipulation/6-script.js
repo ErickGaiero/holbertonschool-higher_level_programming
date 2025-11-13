@@ -1,3 +1,6 @@
+#!/usr/bin/node
+// Script that fetches the character name from this URL: https://swapi-api.hbtn.io/api/people/5/?format=json
+
 document.addEventListener('DOMContentLoaded', () => {
   const url = 'https://swapi-api.hbtn.io/api/people/5/?format=json';
   const characterElement = document.getElementById('character');
